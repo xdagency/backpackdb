@@ -5,6 +5,7 @@
 const   express = require('express'),
         app = express(),
         bodyParser = require('body-parser'),
+        bagRoutes = require('./routes/bagRoutes'),
         config = require('./config');
 
 
@@ -22,6 +23,9 @@ app.use((req, res, next) => {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
+
+// Mount bag routes
+app.use('/bags', bagRoutes);
 
 
 
