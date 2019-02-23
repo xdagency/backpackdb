@@ -1,0 +1,22 @@
+{
+  "name": "backpack-db",
+  "version": "0.1.0",
+  "description": "API for backpacks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xdagency/backpackdb.git"
+  },
+  "author": "Matthew Monaco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xdagency/backpackdb/issues"
+  },
+  "homepage": "https://github.com/xdagency/backpackdb#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
