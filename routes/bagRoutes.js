@@ -11,7 +11,7 @@ const   express = require('express'),
 /* ENDPOINTS            */
 /* ==================== */
 
-app.get('/api/bags', (req, res) => {
+router.get('/api/bags', (req, res) => {
 
 });
 

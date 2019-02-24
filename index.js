@@ -8,6 +8,21 @@ const   express = require('express'),
         bagRoutes = require('./routes/bagRoutes'),
         config = require('./config');
 
+// DB
+const knex = require('knex')({
+    client: 'pg',
+    connection: {
+        host     : '127.0.0.1',
+        user     : 'postgres',
+        password : 'postgres',
+        database : 'backpackdb',
+        charset  : 'utf8'
+    }
+});
+
+// then connect bookshelf with knex
+const bookshelf = require('bookshelf')(knex);
+
 
 
 /* ==================== */
