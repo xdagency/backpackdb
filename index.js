@@ -51,6 +51,29 @@ app.use('/bags', bagRoutes);
 const PORT = process.env.PORT || 8181;
 
 
+/* ==================== */
+/* MODELS               */
+/* ==================== */
+
+const Bags = bookshelf.Model.extend({
+    // tell bookself which table to interact with
+    tableName: 'bags',
+    // create the relationships
+    manufacturers: function() {
+        return this.hasOne(Manufacturers);
+    }
+})
+
+const Manufacturers = bookshelf.Model.extend({
+    // tell bookself which table to interact with
+    tableName: 'manufacturers',
+    // create the relationships
+    manufacturers: function() {
+        return this.belongsTo(Bags);
+    }
+})
+
+
 
 /* ==================== */
 /* LISTEN               */
