@@ -40,7 +40,7 @@ app.use((req, res, next) => {
 });
 
 // Mount bag routes
-app.use('/bags', bagRoutes);
+app.use('/api', bagRoutes);
 
 
 
@@ -80,5 +80,5 @@ const Manufacturers = bookshelf.Model.extend({
 /* ==================== */
 
 app.listen(PORT, () => {
-    console.log('We are up on', PORT);
+    console.log(':) We are up on', PORT);
 })

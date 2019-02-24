@@ -11,10 +11,10 @@ const   express = require('express'),
 /* ENDPOINTS            */
 /* ==================== */
 
-router.get('/api/bags', (req, res) => {
-
+router.get('/bags', (req, res) => {
+    console.log('bags GET endpoint hit!');
+    res.send('Bag Get Route');
 });
-
 
 
 module.exports = router;
