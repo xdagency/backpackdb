@@ -6,22 +6,24 @@ const   express = require('express'),
         app = express(),
         bodyParser = require('body-parser'),
         bagRoutes = require('./routes/bagRoutes'),
+        manufacturerRoutes = require('./routes/manufacturerRoutes'),
         config = require('./config');
 
 // DB
-const knex = require('knex')({
-    client: 'pg',
-    connection: {
-        host     : '127.0.0.1',
-        user     : 'postgres',
-        password : 'postgres',
-        database : 'backpackdb',
-        charset  : 'utf8'
-    }
-});
+// const knex = require('knex')({
+//     client: 'pg',
+//     connection: {
+//         host     : '127.0.0.1',
+//         user     : 'postgres',
+//         password : 'postgres',
+//         database : 'backpackdb',
+//         charset  : 'utf8'
+//     }
+// });
 
 // then connect bookshelf with knex
-const bookshelf = require('bookshelf')(knex);
+// const bookshelf = require('bookshelf')(knex);
+const bookshelf = require('./database');
 
 
 
@@ -41,6 +43,7 @@ app.use((req, res, next) => {
 
 // Mount bag routes
 app.use('/api', bagRoutes);
+app.use('/api', manufacturerRoutes);
 
 
 
@@ -54,24 +57,6 @@ const PORT = process.env.PORT || 8181;
 /* ==================== */
 /* MODELS               */
 /* ==================== */
-
-const Bags = bookshelf.Model.extend({
-    // tell bookself which table to interact with
-    tableName: 'bags',
-    // create the relationships
-    manufacturers: function() {
-        return this.hasOne(Manufacturers);
-    }
-})
-
-const Manufacturers = bookshelf.Model.extend({
-    // tell bookself which table to interact with
-    tableName: 'manufacturers',
-    // create the relationships
-    manufacturers: function() {
-        return this.belongsTo(Bags);
-    }
-})
 
 
 
